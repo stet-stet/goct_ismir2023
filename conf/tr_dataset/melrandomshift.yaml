@@ -1,0 +1,10 @@
+name: AudioRandomShiftDataset
+parameters:
+ split_json_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/train.json
+ #split_hdf5_path: /home/stetstet/valid.h5
+ split_hdf5_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/train.h5
+ token_length: 200
+ encoder: twotwo
+ center: True
+ logspec: True 
+ truncate: 92

@@ -1,0 +1,6 @@
+name: AudioChartTwoBeatSongDataset 
+parameters:
+ split_json_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/test.json
+ #split_hdf5_path: /home/stetstet/valid.h5
+ split_hdf5_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/test.h5
+ 

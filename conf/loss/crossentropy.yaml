@@ -1,0 +1,3 @@
+name: CrossEntropyLoss
+parameters: 
+ label_smoothing: 0.02

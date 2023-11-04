@@ -1,0 +1,11 @@
+name: GorstFineDiffInDecoderInput
+parameters:
+  encoder_hidden_size: 256
+  decoder_hidden_size: 256
+  encoder_layers: 3
+  decoder_layers: 3
+  decoder_max_length: 200
+  condition_dim: 48
+  norm_first: True
+  initialize_method: "trunc_normal"
+  initialize_std: 0.1

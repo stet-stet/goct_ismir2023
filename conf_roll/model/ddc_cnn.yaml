@@ -1,0 +1,3 @@
+name: DDCCNN
+parameters:
+  load_pretrained_weights: False

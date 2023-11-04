@@ -1,0 +1,3 @@
+name: DDCCLSTM
+parameters:
+  load_pretrained_weights: False
