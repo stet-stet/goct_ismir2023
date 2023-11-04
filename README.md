@@ -109,7 +109,7 @@ navigate to the top directory, and run
 python text_replacer.py OSUFOLDER (BIGFOLDER)
 python text_replacer.py STEPMANIAFOLDER (SMALLFOLDER)
 ```
-This is a script that replaces all certain instance of a text within the folder to another.
+This is a script that replaces all certain instance of a text within the folder to another, for files with certain extensions.
 
 now, run any script in `scripts`, from the top directory. I hope the titles are intuitive enough: if not, please raise an issue (or head there to see if I've already answered the question).
 
