@@ -1,6 +1,9 @@
 # GOCT_ISMIR2023
 
-This repo contains code for the extended abstract, "BEAT-ALIGNED SPECTROGRAM-TO-SEQUENCE GENERATION OF RHYTHM-GAME CHARTS.", accepted to [ISMIR2023 LBD]().
+This repo contains code for the extended abstract, "BEAT-ALIGNED SPECTROGRAM-TO-SEQUENCE GENERATION OF RHYTHM-GAME CHARTS.", accepted to [ISMIR2023 LBD](https://ismir2023.ismir.net/cflbd/).
+(the paper isn't ready yet, sorry!)
+
+You may see the demo page [here](https://stet-stet.github.io/goct/)
 
 # Pretrained models
 
