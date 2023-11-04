@@ -137,8 +137,8 @@ class AudioRandomShiftDataset():
 
 def stress_test(split="train", **params): 
     print(f"=============================== split = {split}")
-    split_json_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/{split}.json"
-    split_hdf5_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/{split}.h5"
+    split_json_path = f"OSUFOLDER/{split}.json"
+    split_hdf5_path = f"OSUFOLDER/{split}.h5"
     dset = AudioRandomShiftDataset(split_json_path=split_json_path, split_hdf5_path=split_hdf5_path, **params)
     print(len(dset))
     random_indices = random.sample(list(range(len(dset))),5000)
@@ -151,8 +151,8 @@ def stress_test(split="train", **params):
 
 def size_test(split="train",**params):
     print(f"=============================== split = {split}")
-    split_json_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/{split}.json"
-    split_hdf5_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/{split}.h5"
+    split_json_path = f"OSUFOLDER/{split}.json"
+    split_hdf5_path = f"OSUFOLDER/{split}.h5"
 
     dset = AudioRandomShiftDataset(split_json_path=split_json_path, split_hdf5_path=split_hdf5_path, **params)
     sz = len(dset)

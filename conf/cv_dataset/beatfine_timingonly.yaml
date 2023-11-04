@@ -1,8 +1,8 @@
 name: AudioTimingFineBeatDataset
 parameters:
- split_json_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/valid.json
+ split_json_path: OSUFOLDER/valid.json
  #split_hdf5_path: /home/stetstet/valid.h5
- split_hdf5_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/valid.h5
+ split_hdf5_path: OSUFOLDER/valid.h5
  token_length: 100
  encoder: twotwo
  center: True

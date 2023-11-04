@@ -1,6 +1,0 @@
-name: AudioChartTwoBeatSongDataset 
-parameters:
- split_json_path: OSUFOLDER/test.json
- #split_hdf5_path: /home/stetstet/valid.h5
- split_hdf5_path: OSUFOLDER/test.h5
- 

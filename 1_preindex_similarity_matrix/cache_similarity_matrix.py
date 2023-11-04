@@ -28,6 +28,6 @@ def cache_similarity_matrix(split_file, h5_output):
             pbar.set_description(str(sim_matrix.shape))
     
 if __name__=="__main__":
-    cache_similarity_matrix('/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/train.json', 'train_m.h5')
-    cache_similarity_matrix('/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/valid.json', 'valid_m.h5')
-    cache_similarity_matrix('/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/test.json', 'test_m.h5')
+    cache_similarity_matrix('OSUFOLDER/train.json', 'train_m.h5')
+    cache_similarity_matrix('OSUFOLDER/valid.json', 'valid_m.h5')
+    cache_similarity_matrix('OSUFOLDER/test.json', 'test_m.h5')

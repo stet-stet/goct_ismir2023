@@ -1,7 +1,0 @@
-epochs: 12
-batch_size:
-  tr: 64
-  cv: 64
-  ts: 64
-num_workers: 8
-checkpoint_path: ckpt.pth

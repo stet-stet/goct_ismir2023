@@ -99,9 +99,9 @@ class DDCDataset():
 
 def size_test(split="train",**params):
     print(f"=============================== split = {split}")
-    split_json_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/{split}.json"
-    music_hdf5_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/all_ddc.h5"
-    onset_hdf5_path = f"/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/all_onset.h5"
+    split_json_path = f"OSUFOLDER/{split}.json"
+    music_hdf5_path = f"OSUFOLDER/all_ddc.h5"
+    onset_hdf5_path = f"OSUFOLDER/all_onset.h5"
 
     dset = DDCDataset(split_json_path=split_json_path, music_hdf5_path=music_hdf5_path, onset_hdf5_path=onset_hdf5_path, **params)
     sz = len(dset)

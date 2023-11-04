@@ -1,3 +1,0 @@
-name: BCELoss
-parameters:
- reduction: 'mean'

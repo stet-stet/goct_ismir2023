@@ -104,7 +104,7 @@ This will also generate a `~40GB` file.
 
 ## Running Training
 
-navigate to `conf`, and run 
+navigate to the top directory, and run 
 ```
 python text_replacer.py OSUFOLDER (BIGFOLDER)
 python text_replacer.py STEPMANIAFOLDER (SMALLFOLDER)

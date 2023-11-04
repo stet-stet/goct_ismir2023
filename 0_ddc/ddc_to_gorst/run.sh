@@ -1,4 +1,4 @@
-DIR=/mnt/c/Users/manym/Desktop/SNU2023appendix/stepmaniadata/json_filt
+DIR=STEPMANIAFOLDER/json_filt
 
 python main.py clean ${DIR}
 python main.py do ${DIR}

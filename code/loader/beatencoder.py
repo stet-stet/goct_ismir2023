@@ -330,7 +330,7 @@ if __name__=="__main__":
     import sys
     import json
     
-    "/mnt/c/Users/manym/Desktop/SNU2023appendix/beatmap/2026_ddc_rere/153199/SHK - Couple Breaking (Sky_Demon) [MX].osu.json"
+    "OSUFOLDER/153199/SHK - Couple Breaking (Sky_Demon) [MX].osu.json"
     "We will be looking at bar 3"
 
     with open(sys.argv[1],'r') as file:

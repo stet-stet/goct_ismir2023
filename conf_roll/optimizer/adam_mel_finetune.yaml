@@ -1,5 +1,0 @@
-name: adam
-parameters:
- lr: 2e-5
- beta1: 0.9
- beta2: 0.999

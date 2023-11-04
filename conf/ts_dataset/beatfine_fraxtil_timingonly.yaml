@@ -1,6 +1,6 @@
 name: AudioTimingTwoBeatSongDataset 
 parameters:
- split_json_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/stepmaniadata/json_filt/fraxtil/test.json
+ split_json_path: STEPMANIAFOLDER/json_filt/fraxtil/test.json
  #split_hdf5_path: /home/stetstet/valid.h5
- split_hdf5_path: /mnt/c/Users/manym/Desktop/SNU2023appendix/stepmaniadata/json_filt/fraxtil/test.h5
+ split_hdf5_path: STEPMANIAFOLDER/json_filt/fraxtil/test.h5
  

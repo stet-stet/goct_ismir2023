@@ -1,7 +1,0 @@
-name: DDCDataset
-parameters:
- split_json_path: OSUFOLDER/valid.json
- #split_hdf5_path: /home/stetstet/valid.h5
- music_hdf5_path: OSUFOLDER/all_ddc.h5
- onset_hdf5_path: OSUFOLDER/all_onset.h5
- min_diff: 6.5
