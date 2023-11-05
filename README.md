@@ -3,11 +3,13 @@
 This repo contains code for the extended abstract, "BEAT-ALIGNED SPECTROGRAM-TO-SEQUENCE GENERATION OF RHYTHM-GAME CHARTS.", accepted to [ISMIR2023 LBD](https://ismir2023.ismir.net/cflbd/).
 (the paper isn't ready yet, sorry!)
 
-You may see the demo page [here](https://stet-stet.github.io/goct/)
+**This repo is also under construction**; this is a public version of my bigger, private repo, and I am yet to make sure that everything works without some of the parts that I had. This will definitely be done before Thursday. 
+
+You may see the demo page [here](https://stet-stet.github.io/goct/), but this page is currently under construction as well. **Alternatively**, [here](https://drive.google.com/drive/folders/1vPYGO5TuGdGRiGkI9SsNWtvw1TZjcZPW?usp=sharing) is a folder that has videos of generated charts for a wide variety of genres and difficulties.
 
 # Pretrained models
 
-We bundled all of the models used to generate the tables in the paper into one .zip file of size `~300MB`. You can download it [here](), and then perhaps unzip it to `goct/ckpts`, as many scripts are written with this arrangement implied.
+We bundled all of the models used to generate the tables in the paper into one .zip file of size `~300MB`. You can download it [here](https://drive.google.com/file/d/1d6J7Mtgdvx3ecqrK6K3Eakj136QR2S_9/view?usp=sharing). If you'd like to replicate the tables or generate your own charts, unzip it to `goct/ckpts`, as many scripts are written with this arrangement implied.
 
 # Instructions
 
@@ -95,10 +97,10 @@ Henceforth we will call the big folder for the beatmania data, where dirs such a
 
 ## Preprocessing data for DDC model training.
 
-Clone my fork of ddc_onset, and run 
+Clone [my fork of ddc_onset](https://github.com/stet-stet/ddc_onset), and and please run
 ```
-python h5pyize_tree.py do (BIGFOLDER)/all_ddc.h5
-python h5pyize_tree.py onset (BIGFOLDER)/all_ddc.h5 (BIGFOLDER)/all_onset.h5
+python h5pyize_tree.py do (BIGFOLDER) (BIGFOLDER)/all_ddc.h5
+python h5pyize_tree.py onset (BIGFOLDER) (BIGFOLDER)/all_ddc.h5 (BIGFOLDER)/all_onset.h5
 ```
 This will also generate a `~40GB` file.
 
@@ -121,15 +123,15 @@ Metrics in Table 2 can be genererated with `metrics_timing_AR.py` and `ddc_eval.
 
 ## (WIP) Generating charts
 
-unzip `generated.zip` to `generate` if you need this feature, or would like to try replicating Table 3.
+unzip `generated.zip` to `generate` on the highest directory of this repo, if you need this feature or would like to try replicating Table 3.
 
 `metrics_cond_centered_AR.py` is used to generate notes for the models trained on osu!. For the commands and the numbers please see that file. Moreover, `generated/millin_and_anmillin.ipynb` is used to generate stats for Table 3. Also in the `generated` folder are the files output from `metrics_cond_centered_AR.py` from the beat-aligned and non-beat-aligned models.
 
 The generated intermediate is output both on the console, and on the `outputs` folder that will be generated. Either route the output to a folder of your liking or copy the logged output from `outputs` folder, as well as the ground truth, generated with `generate_ref.py`.
 
 
-## Generating charts for the test set from the notes
+## (WIP) Generating charts for the test set from the notes generated
 
-`gen_to_beatmap_all.ipynb` has the code, but I would not dare make this into a script, since I think the code is very unrefined. The scripts here read in the log files generated, parse them, and translate them into the `.osu` format with the help of preexisting .osu files.
+`gen_to_beatmap_all.ipynb` has the code, but I would not dare make this into a script, since I the code is very unrefined. The scripts here read in the log files generated, parse them, and translate them into the `.osu` format with the help of preexisting .osu files.
 
 I have not implemented making stepmania charts at the moment, nor I have implemented making osu!mania charts from scratch. hopefully I will have the time to work on it in the future and release it to both communities.
