@@ -74,7 +74,6 @@ def pack_dset_into_h5py(split_json, transpose=False):
         else:
             h5f.create_dataset(dataset_name,data=mel)
         # h5f.create_dataset(dataset_name,data=mel.T) <- [:, a:b] are training samples; we want this segment to be consecutive
-        # TODO: run this code on the night of April 2nd and speed-test on the morning of 3rd
     h5f.close()
 
 if __name__=="__main__":

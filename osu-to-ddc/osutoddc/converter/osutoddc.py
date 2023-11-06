@@ -9,7 +9,8 @@ from osuparser import parse_osu_file
 # open library made from parsing nerinyan API responses.
 # TODO eliminate hard-coded library path.
 def fetch_ranked_map_library():
-    with open("/mnt/c/Users/manym/Desktop/home_root/osu-to-ddc/osu_mania_ranked_library.json") as file:
+    this_file_path = os.path.dirname(os.path.realpath(__file__))
+    with open(os.path.join(this_file_path,"osu_mania_ranked_library.json")) as file:
         lib = file.read()
     return json.loads(lib)
 

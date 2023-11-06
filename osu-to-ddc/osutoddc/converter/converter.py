@@ -14,6 +14,8 @@ def make_new_file(filename, exist_ok=True):
       pass
 
 def one_file(input,output):
+   if input==output:
+      raise ValueError("input must be .osu, output must be .json")
    if not input.endswith('.osu'):
       raise ValueError("this file is not an .osu file!")
    make_new_file(output, exist_ok=True)
@@ -43,8 +45,9 @@ def one_folder(input,output,keep_osu=True):
 def many_folder(input,output,keep_osu=True):
    if not os.path.isdir(input):
       raise ValueError("Not a valid directory")
-   os.makedirs(output,exist_ok=True)
-   shutil.copytree(input,output,dirs_exist_ok=True)
+   if input != output:
+      os.makedirs(output,exist_ok=True)
+      shutil.copytree(input,output,dirs_exist_ok=True)
 
    folders = [os.path.join(output, e) for e in os.listdir(output) 
                   if os.path.isdir(os.path.join(output,e))]
@@ -55,8 +58,6 @@ def many_folder(input,output,keep_osu=True):
          print("error with: ",input)
 
 def run(input,output,keep_osu=True):
-   if input==output:
-      raise ValueError("input must be .osu, output must be .json")
    if os.path.isfile(input):
       one_file(input,output)
    elif os.path.isdir(input):

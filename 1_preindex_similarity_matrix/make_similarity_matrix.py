@@ -3,8 +3,8 @@ import sys
 import json 
 import copy
 import scipy
+# torch dependency is removed
 import numpy as np
-import torch
 import soundfile as sf
 
 def read_ddc_file(filename):
@@ -68,13 +68,17 @@ def get_beat_to_sample_map(bpms=None, sr=44100, make_until=1000, time_mode="samp
                 
                 current_bpm = next_bpm
         # TODO: catch corner cases where two BPM changes are b2b less than 1/48th beat away
-        #       (probably nonexistent in ranked maps, but still)
+        #       (we removed them when making dataset, but might be worthwhile to keep them)
     return ret
 
 def make_indexes_from_beat_to_sample_map(beat_to_sample_map, fft_size=512):
     return [list(range(e,e+fft_size)) for _,e in beat_to_sample_map]
 
 def make_beatwise_similarity_matrix_and_beat_to_sample_map(json_filepath, fft_size=512, no_matrix=False):
+    # NOTE
+    # there used to be a code that makes similarity matrix here, but
+    # since the LBD does not use this (yet), we removed the code.
+    # 
     d = read_ddc_file(json_filepath)
     json_path = os.path.dirname(json_filepath)
     if d["music_fp"].startswith("/") or d["music_fp"].startswith("C:") :
@@ -95,24 +99,7 @@ def make_beatwise_similarity_matrix_and_beat_to_sample_map(json_filepath, fft_si
     length_in_beats = int(max_beat) + 1
     beat_to_sample_map = get_beat_to_sample_map(bpms=d['bpms'], sr=sr, make_until=length_in_beats)
 
-    try: 
-        to_fft = np.take(y,make_indexes_from_beat_to_sample_map(beat_to_sample_map,fft_size=fft_size))
-        fftd = scipy.fft.rfft(to_fft)
-        fftd = np.abs(fftd)**2
-        fftd_r = np.reshape(fftd, (length_in_beats, -1))
-        fftd_r /= (np.linalg.norm(fftd_r, axis=1, keepdims=True)+1e-12)   
-        fftd_r = torch.Tensor(fftd_r).to('cuda:0')
-        
-        similarity_matrix = torch.matmul(fftd_r, fftd_r.transpose(1,0))
-        # return similarity_matrix.cpu().numpy(), beat_to_sample_map
-    except Exception as e:
-        print('')
-        print(f"problematic/simmatrix defaults to zero for : {json_filepath}")
-        print(e)
-        print('')
-        return np.zeros([length_in_beats,length_in_beats]), beat_to_sample_map
-
-    return similarity_matrix.cpu().numpy(), beat_to_sample_map
+    return np.zeros([length_in_beats,length_in_beats]), beat_to_sample_map
     
 
 ############################################## FOR TESTING ############################################## 
