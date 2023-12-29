@@ -45,7 +45,7 @@ Some tips on the file format:
 
 ## Preprocessing Data for osu!mania 4k dataset
 
-If you cannot go through the steps below, I can provide you with the .h5 files. However, I honestly cannot think of a stable way to transport three files that sum up to `~40GB`, so you'll have to provide me with a good way to do so.
+~~If you cannot go through the steps below, I can provide you with the .h5 files. However, I honestly cannot think of a stable way to transport three files that sum up to `~40GB`, so you'll have to provide me with a good way to do so.~~ (EDIT: on second thought, I am not entirely sure if this is even legal to do in my nation. I do not expect Korean laws to exhibit any sort of decency nor leniency, not anymore. Do we even have "fair use"?)
 
 **Prerequisite**. We strongly recommend that the data be organized like this.
 ```
