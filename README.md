@@ -2,8 +2,6 @@
 
 This repo contains code for the extended abstract, "[BEAT-ALIGNED SPECTROGRAM-TO-SEQUENCE GENERATION OF RHYTHM-GAME CHARTS](https://drive.google.com/file/d/1XOT9zD6yIoSQS7bwQpI9pOaO0DHL0Bec/view?usp=sharing)", accepted to [ISMIR2023 LBD](https://ismir2023.ismir.net/cflbd/).
 
-**This repo is also under construction**; this is a public version of my bigger, private repo, and I am yet to make sure that everything works without some of the parts that I had. This will definitely be done before Thursday. 
-
 You may see the demo page [here](https://stet-stet.github.io/goct/), but this page is currently under construction as well. **Alternatively**, [here](https://drive.google.com/drive/folders/1vPYGO5TuGdGRiGkI9SsNWtvw1TZjcZPW?usp=sharing) is a folder that has videos of generated charts for a wide variety of genres and difficulties. 
 
 # Pretrained models
@@ -42,6 +40,7 @@ Therefore, it would be meaningless to provide a script for downloading the scrip
 Some tips on the file format:
 - `.osz` files are actually `.zip` files. Just rename them and you will be able to unzip them. even after unzipping, it is recommended to keep the contents of the folder in the same folder.
 - Likewise, `.osu` files are plaintext. There's even an [wiki article](https://osu.ppy.sh/wiki/en/Client/File_formats/osu_%28file_format%29) for this online, which is fairly detailed.
+- Fortunately, there are actually some parsers in this repo!
 
 ## Preprocessing Data for osu!mania 4k dataset
 
@@ -49,7 +48,7 @@ Some tips on the file format:
 
 **Prerequisite**. We strongly recommend that the data be organized like this.
 ```
-BIGFOLDER
+(BIGFOLDER)
 ㄴ136881
 ㄴ153199
     ㄴaudio.mp3
@@ -58,7 +57,7 @@ BIGFOLDER
     ㄴSHK - Couple Breaking (Sky_Demon) [Sakura's HD].osu
     ㄴ...
 ```
-remember which directory the folders are located in. We will call this `(BIGFOLDER)`. This is not to be confused with `BIGFOLDER`, which is literally the length-9 text "BIGFOLDER".
+remember which directory the folders are located in. We will call this `(BIGFOLDER)`. This is not to be confused with `OSUFOLDER`, which is literally the length-9 text "OSUFOLDER".
 
 We strongly recommend that the steps below be taken in a non-Windows operating system.
 
@@ -69,7 +68,7 @@ We strongly recommend that the steps below be taken in a non-Windows operating s
 4. Navigate to `2_generate_dataset` and run `python h5pyize_dataset.py (BIGFOLDER)/test.json`. Do the same for valid.json and train.json. This will take less time than the previous step, but will take extremely long nonetheless (~30 hours). The generated .h5 files will be `~40GB` total.
 5. Now the folder should look like this.
 ```
-BIGFOLDER
+(BIGFOLDER)
 ㄴ136881
 ㄴ153199
     ㄴaudio.mp3
