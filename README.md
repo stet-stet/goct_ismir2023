@@ -61,7 +61,7 @@ remember which directory the folders are located in. We will call this `(BIGFOLD
 
 We strongly recommend that the steps below be taken in a non-Windows operating system.
 
-1. Wipe all data from the beatmapsets(`.osz`s) except for the .osu files referenced by `summary.json`, which is train, valid, and test json files combined.
+1. Wipe all data from the beatmapsets(`.osz`s) except for the .osu files referenced by `data/train.json`, `data/valid.json`, and `data/test.json`. Also leave the audio files referenced by these `.osu` files as a background music.
 2. Navigate to `osu-to-ddc/osutoddc/converter` and run `python converter.py (BIGFOLDER) (BIGFOLDER)`. 
 3. Navigate to `1_preindex_similarity_matrix`. Run `python cache_similar_beat_index.py (BIGFOLDER) && python cleanup.py (BIGFOLDER)`. This may take very, very long. Please return tomorrow.
 4. Navigate to the top directory and run `python replace_text.py BIGFOLDER (BIGFOLDER)`. Then, `cp data/* (BIGFOLDER)`. (This was primarily generated with `2_generate_dataset/generate_dataset_peripherals.py`, but the dataset splits were modified to filter out some beatmaps later, to combat a upstream problem that arose much later into the process. As a result the script does not yield the same outputs anymore.)
@@ -110,17 +110,17 @@ python text_replacer.py STEPMANIAFOLDER (SMALLFOLDER)
 ```
 This is a script that replaces all certain instance of a text within the folder to another, for files with certain extensions. The files modified with this are mainly in the folder `conf/`.
 
-now, run any script in `scripts`, from the top directory. I hope the titles are intuitive enough: if not, please raise an issue (or head there to see if I've already answered the question).
+now, run any script in `scripts`, from the top directory. `mel_timing.sh` is used to train models without action tokens; these models are later used to generate the numbers on Table 2. `mel.sh` is used to train models with action tokens; these models are used for all other experiments on the paper.
 
 On my system, with a RTX 3060, one epoch of `mel.sh` takes two hours. With a RTX 3090, it should take one for each epoch.
 
-Metrics in Table 2 can be genererated with `metrics_timing_AR.py` and `ddc_eval.py`. Please see that file for notes.
+Metrics in Table 2 can be genererated using `metrics_timing_AR.py` and `ddc_eval.py`. Please see these files for notes on how to run the evaluation, and which model to use.
 
-## (WIP) Generating charts
+## (Unorganized) Generating charts
 
 unzip `generated.zip` to `generate` on the highest directory of this repo, if you need this feature or would like to try replicating Table 3.
 
-`metrics_cond_centered_AR.py` is used to generate notes for the models trained on osu!. For the commands and the numbers please see that file. Moreover, `generated/millin_and_anmillin.ipynb` is used to generate stats for Table 3. Also in the `generated` folder are the files output from `metrics_cond_centered_AR.py` from the beat-aligned and non-beat-aligned models.
+`metrics_cond_centered_AR.py` is used to generate notes for the models trained on osu!. For the commands and the numbers please see the comments in `metrics_timing_AR.py`. which is also used in a similar way. Moreover, `generated/millin_and_anmillin.ipynb` was used to generate stats for Table 3. Also in the `generated` folder are the files output from `metrics_timing_AR.py` and `metrics_cond_centered_AR.py` from the beat-aligned and non-beat-aligned models.
 
 The generated intermediate is output both on the console, and on the `outputs` folder that will be generated. Either route the output to a folder of your liking or copy the logged output from `outputs` folder, as well as the ground truth, generated with `generate_ref.py`.
 
